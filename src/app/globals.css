@@ -1,26 +1,174 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  /* Shadcn variable references */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+
+  /* Template color system */
+  --color-primary: #c6c6ce;
+  --color-primary-dim: #b8b8c0;
+  --color-primary-fixed: #d6d6de;
+  --color-primary-fixed-dim: #c8c9d0;
+  --color-primary-container: #515259;
+  --color-on-primary: #3e4046;
+  --color-on-primary-fixed: #36383e;
+  --color-on-primary-fixed-variant: #53545b;
+  --color-on-primary-container: #e3e2eb;
+  --color-inverse-primary: #5d5f65;
+
+  --color-secondary: #c8c6c9;
+  --color-secondary-container: #3b3b3e;
+  --color-secondary-fixed: #e4e1e5;
+  --color-secondary-fixed-dim: #d6d3d7;
+  --color-secondary-dim: #bab8bc;
+  --color-on-secondary: #404043;
+  --color-on-secondary-fixed: #3f3f42;
+  --color-on-secondary-fixed-variant: #5c5b5e;
+  --color-on-secondary-container: #c1bec2;
+
+  --color-tertiary: #af88ff;
+  --color-tertiary-container: #8342f4;
+  --color-tertiary-fixed: #8342f4;
+  --color-tertiary-fixed-dim: #7632e7;
+  --color-tertiary-dim: #8a4cfc;
+  --color-on-tertiary: #2b0065;
+  --color-on-tertiary-fixed: #ffffff;
+  --color-on-tertiary-fixed-variant: #e5d5ff;
+  --color-on-tertiary-container: #ffffff;
+
+  --color-surface: #0a0a0a;
+  --color-surface-dim: #0a0a0a;
+  --color-surface-bright: #2c2c30;
+  --color-surface-variant: #25252a;
+  --color-surface-container-lowest: #000000;
+  --color-surface-container-low: #121214;
+  --color-surface-container: #161618;
+  --color-surface-container-high: #1f1f23;
+  --color-surface-container-highest: #25252a;
+  --color-surface-tint: #c6c6ce;
+  --color-inverse-surface: #fcf8fb;
+  --color-inverse-on-surface: #565457;
+  --color-on-surface: #e7e4ea;
+  --color-on-surface-variant: #acaab0;
+  --color-on-background: #e7e4ea;
+
+  --color-outline: #76757a;
+  --color-outline-variant: #48474c;
+
+  --color-error: #f97386;
+  --color-error-dim: #c44b5f;
+  --color-error-container: #871c34;
+  --color-on-error: #490013;
+  --color-on-error-container: #ff97a3;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Dark-only site — all values live in :root */
+:root {
+  --background: #0a0a0a;
+  --foreground: #e7e4ea;
+  --card: #161618;
+  --card-foreground: #e7e4ea;
+  --popover: #161618;
+  --popover-foreground: #e7e4ea;
+  --muted: #161618;
+  --muted-foreground: #acaab0;
+  --accent: #1f1f23;
+  --accent-foreground: #e7e4ea;
+  --secondary-foreground: #e7e4ea;
+  --destructive: #f97386;
+  --border: rgba(255, 255, 255, 0.08);
+  --input: #48474c;
+  --ring: #76757a;
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    background-color: #0a0a0a;
+    color: #e7e4ea;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+  html {
+    @apply font-sans;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Typography scale */
+.text-display-lg {
+  font-size: 4.5rem;
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+.text-display-md {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+.text-headline {
+  font-size: 2.25rem;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.text-body-lg {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  font-weight: 400;
+}
+.text-body-md {
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: 400;
+}
+.text-label-sm {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.hero-gradient {
+  background: radial-gradient(circle at 50% 50%, rgba(175, 136, 255, 0.05) 0%, transparent 60%);
+}
+.glass-panel {
+  background: rgba(25, 25, 28, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+@media (max-width: 640px) {
+  .text-display-lg { font-size: 2.5rem; }
+  .text-display-md { font-size: 2rem; }
+  .text-headline { font-size: 1.75rem; }
 }
