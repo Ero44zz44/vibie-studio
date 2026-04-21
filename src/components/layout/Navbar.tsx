@@ -3,17 +3,20 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
-  { label: "Work", href: "#work" },
-  { label: "Services", href: "#services" },
-  { label: "Process", href: "#process" },
-  { label: "Contact", href: "#contact" },
+  { label: "Work", href: "/work" },
+  { label: "Services", href: "/services" },
+  { label: "Process", href: "/process" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20);
@@ -37,38 +40,43 @@ export default function Navbar() {
         }}
       >
         <div className="flex justify-between items-center max-w-7xl mx-auto px-4 md:px-8 py-5">
-          <a href="#" className="text-xl font-bold tracking-tighter text-on-surface">
+          <Link href="/" className="text-xl font-bold tracking-tighter text-on-surface">
             Vibie
-          </a>
+          </Link>
 
           {/* Desktop links */}
           <div className="hidden md:flex gap-8 items-center">
-            {navLinks.map((link, i) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-sm font-medium transition-all duration-200"
-                style={{ color: i === 0 ? "#af88ff" : "rgba(231,228,234,0.6)" }}
-                onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#e7e4ea")}
-                onMouseLeave={(e) =>
-                  ((e.currentTarget as HTMLAnchorElement).style.color =
-                    i === 0 ? "#af88ff" : "rgba(231,228,234,0.6)")
-                }
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const active = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm font-medium transition-colors duration-200"
+                  style={{ color: active ? "#af88ff" : "rgba(231,228,234,0.55)" }}
+                  onMouseEnter={(e) => {
+                    if (!active) (e.currentTarget as HTMLAnchorElement).style.color = "#e7e4ea";
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!active) (e.currentTarget as HTMLAnchorElement).style.color = "rgba(231,228,234,0.55)";
+                  }}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </div>
 
           {/* Desktop CTA */}
-          <button
-            className="hidden md:block px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200"
+          <Link
+            href="/contact"
+            className="hidden md:block px-6 py-2.5 rounded-full text-sm font-medium transition-colors duration-200"
             style={{ backgroundColor: "#c6c6ce", color: "#3e4046" }}
-            onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.backgroundColor = "#b8b8c0")}
-            onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.backgroundColor = "#c6c6ce")}
+            onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#b8b8c0")}
+            onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#c6c6ce")}
           >
             Start project
-          </button>
+          </Link>
 
           {/* Mobile hamburger */}
           <button
@@ -103,7 +111,7 @@ export default function Navbar() {
         </div>
       </motion.nav>
 
-      {/* Mobile menu panel */}
+      {/* Mobile menu */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -115,27 +123,34 @@ export default function Navbar() {
             style={{
               backgroundColor: "rgba(10,10,10,0.97)",
               backdropFilter: "blur(20px)",
-              borderBottom: "1px solid rgba(255,255,255,0.06)",
+              borderBottom: "1px solid rgba(255,255,255,0.04)",
             }}
           >
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setMenuOpen(false)}
-                className="py-3 text-base font-medium min-h-[44px] flex items-center"
-                style={{ color: "rgba(231,228,234,0.7)", borderBottom: "1px solid rgba(255,255,255,0.04)" }}
-              >
-                {link.label}
-              </a>
-            ))}
-            <button
-              className="mt-4 w-full py-3.5 rounded-full text-sm font-medium min-h-[44px]"
+            {navLinks.map((link) => {
+              const active = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="py-3 text-base font-medium min-h-[44px] flex items-center"
+                  style={{
+                    color: active ? "#af88ff" : "rgba(231,228,234,0.7)",
+                    borderBottom: "1px solid rgba(255,255,255,0.04)",
+                  }}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+            <Link
+              href="/contact"
+              className="mt-4 w-full py-3.5 rounded-full text-sm font-medium min-h-[44px] text-center"
               style={{ backgroundColor: "#c6c6ce", color: "#3e4046" }}
               onClick={() => setMenuOpen(false)}
             >
               Start project
-            </button>
+            </Link>
           </motion.div>
         )}
       </AnimatePresence>
