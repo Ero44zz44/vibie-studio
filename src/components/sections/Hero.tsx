@@ -77,38 +77,40 @@ export default function Hero() {
                 </motion.p>
 
                 <motion.div {...fadeIn(0.44)} className="flex flex-col sm:flex-row gap-3">
-                  <button
-                    className="px-8 py-4 rounded-full font-medium text-base transition-colors duration-200 min-h-[52px]"
+                  <a
+                    href="/contact"
+                    className="px-8 py-4 rounded-full font-medium text-base transition-colors duration-200 min-h-[52px] inline-flex items-center justify-center"
                     style={{
                       backgroundColor: "#c6c6ce",
                       color: "#3e4046",
                       boxShadow: "0 0 30px rgba(175,136,255,0.15)",
                     }}
                     onMouseEnter={(e) =>
-                      ((e.currentTarget as HTMLButtonElement).style.backgroundColor = "#b8b8c0")
+                      ((e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#b8b8c0")
                     }
                     onMouseLeave={(e) =>
-                      ((e.currentTarget as HTMLButtonElement).style.backgroundColor = "#c6c6ce")
+                      ((e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#c6c6ce")
                     }
                   >
                     Start your project
-                  </button>
-                  <button
-                    className="px-8 py-4 rounded-full font-medium text-base transition-colors duration-200 min-h-[52px]"
+                  </a>
+                  <a
+                    href="/work"
+                    className="px-8 py-4 rounded-full font-medium text-base transition-colors duration-200 min-h-[52px] inline-flex items-center justify-center"
                     style={{
                       backgroundColor: "transparent",
                       color: "#e7e4ea",
                       border: "1px solid rgba(255,255,255,0.1)",
                     }}
                     onMouseEnter={(e) =>
-                      ((e.currentTarget as HTMLButtonElement).style.backgroundColor = "#121214")
+                      ((e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#121214")
                     }
                     onMouseLeave={(e) =>
-                      ((e.currentTarget as HTMLButtonElement).style.backgroundColor = "transparent")
+                      ((e.currentTarget as HTMLAnchorElement).style.backgroundColor = "transparent")
                     }
                   >
                     See our work
-                  </button>
+                  </a>
                 </motion.div>
               </div>
 

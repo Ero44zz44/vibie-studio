@@ -60,22 +60,23 @@ export default function CTA() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.65, delay: 0.65, ease: [0.16, 1, 0.3, 1] }}
         >
-          <button
-            className="px-10 py-4 rounded-full font-medium text-base min-h-[52px] transition-colors duration-200"
+          <a
+            href="/contact"
+            className="px-10 py-4 rounded-full font-medium text-base min-h-[52px] transition-colors duration-200 inline-flex items-center justify-center"
             style={{
               backgroundColor: "#c6c6ce",
               color: "#3e4046",
               boxShadow: "0 0 40px rgba(175,136,255,0.18)",
             }}
             onMouseEnter={(e) =>
-              ((e.currentTarget as HTMLButtonElement).style.backgroundColor = "#b8b8c0")
+              ((e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#b8b8c0")
             }
             onMouseLeave={(e) =>
-              ((e.currentTarget as HTMLButtonElement).style.backgroundColor = "#c6c6ce")
+              ((e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#c6c6ce")
             }
           >
             Start your project
-          </button>
+          </a>
         </motion.div>
       </div>
     </section>
