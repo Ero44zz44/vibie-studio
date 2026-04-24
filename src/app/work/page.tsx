@@ -14,12 +14,13 @@ const projects = [
     accent: "#f97316",
   },
   {
-    name: "PulseClinic",
+    name: "Dr. Sarah Mitchell",
     category: "Healthcare",
     year: "2025",
-    description: "Appointment booking platform for a private clinic. AI-powered scheduling, patient portal, WhatsApp reminders.",
-    gradient: "from-teal-900/40 to-cyan-950/60",
-    accent: "#14b8a6",
+    description: "Internal medicine & preventive care practice site. Online appointment booking, telehealth services, and patient testimonials.",
+    gradient: "from-blue-900/40 to-slate-950/60",
+    accent: "#60a5fa",
+    url: "https://doctors-website-orpin.vercel.app/",
   },
   {
     name: "Nomad Coffee",
@@ -83,8 +84,12 @@ export default function WorkPage() {
           {projects.map((project, i) => (
             <FadeUp key={project.name} delay={i * 0.07}>
               <div
-                className="group rounded-2xl overflow-hidden cursor-default transition-transform duration-300 hover:-translate-y-1"
-                style={{ backgroundColor: "#111113" }}
+                className="group rounded-2xl overflow-hidden transition-transform duration-300 hover:-translate-y-1"
+                style={{
+                  backgroundColor: "#111113",
+                  cursor: (project as { url?: string }).url ? "pointer" : "default",
+                }}
+                onClick={() => { if ((project as { url?: string }).url) window.open((project as { url?: string }).url, "_blank"); }}
               >
                 {/* Visual swatch */}
                 <div
@@ -109,6 +114,9 @@ export default function WorkPage() {
                     <span className="text-xs text-on-surface-variant">{project.year}</span>
                   </div>
                   <p className="text-body-md text-on-surface-variant">{project.description}</p>
+                  {(project as { url?: string }).url && (
+                    <p className="text-xs mt-3 font-medium" style={{ color: project.accent }}>Visit site →</p>
+                  )}
                 </div>
               </div>
             </FadeUp>
