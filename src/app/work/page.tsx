@@ -14,13 +14,14 @@ const projects = [
     accent: "#f97316",
   },
   {
-    name: "Dr. Sarah Mitchell",
+    name: "For personalized doctors",
     category: "Healthcare",
     year: "2025",
     description: "Internal medicine & preventive care practice site. Online appointment booking, telehealth services, and patient testimonials.",
     gradient: "from-blue-900/40 to-slate-950/60",
     accent: "#60a5fa",
     url: "https://doctors-website-orpin.vercel.app/",
+    preview: "https://api.microlink.io/?url=https%3A%2F%2Fdoctors-website-orpin.vercel.app%2F&screenshot=true&meta=false&embed=screenshot.url",
   },
   {
     name: "Nomad Coffee",
@@ -95,6 +96,14 @@ export default function WorkPage() {
                 <div
                   className={`h-48 bg-gradient-to-br ${project.gradient} relative overflow-hidden`}
                 >
+                  {(project as { preview?: string }).preview && (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={(project as { preview?: string }).preview}
+                      alt={project.name}
+                      className="absolute inset-0 w-full h-full object-cover object-top"
+                    />
+                  )}
                   <div
                     className="absolute bottom-4 right-4 text-label-sm px-3 py-1 rounded-full"
                     style={{
