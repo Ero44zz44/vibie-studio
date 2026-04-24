@@ -6,12 +6,14 @@ import Footer from "@/components/sections/Footer";
 
 const projects = [
   {
-    name: "Ararat Spirits",
-    category: "E-commerce",
+    name: "Repair services",
+    category: "Local Business",
     year: "2025",
-    description: "Full online store for an Armenian luxury spirits brand. Custom checkout, multi-currency, age verification gate.",
-    gradient: "from-amber-900/40 to-orange-950/60",
-    accent: "#f97316",
+    description: "Premium shoe care & leather restoration studio at Glendale Galleria. Expert repair for Louis Vuitton, Hermès, Louboutin, and more.",
+    gradient: "from-yellow-900/40 to-stone-950/60",
+    accent: "#c9a84c",
+    url: "https://galleria-shoe-care.vercel.app/",
+    preview: "https://api.microlink.io/?url=https%3A%2F%2Fgalleria-shoe-care.vercel.app%2F&screenshot=true&meta=false&embed=screenshot.url",
   },
   {
     name: "For personalized doctors",
