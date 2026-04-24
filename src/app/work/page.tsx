@@ -13,7 +13,7 @@ const projects = [
     gradient: "from-yellow-900/40 to-stone-950/60",
     accent: "#c9a84c",
     url: "https://galleria-shoe-care.vercel.app/",
-    preview: "/work/galleria-shoe-care.jpg",
+    preview: "/work/galleria-shoe-care.png",
   },
   {
     name: "For personalized doctors",
@@ -23,7 +23,7 @@ const projects = [
     gradient: "from-blue-900/40 to-slate-950/60",
     accent: "#60a5fa",
     url: "https://doctors-website-orpin.vercel.app/",
-    preview: "/work/doctors-website.jpg",
+    preview: "/work/doctors-website.png",
   },
   {
     name: "Nomad Coffee",
