@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Card } from "@/components/ui/card";
@@ -77,7 +78,7 @@ export default function Hero() {
                 </motion.p>
 
                 <motion.div {...fadeIn(0.44)} className="flex flex-col sm:flex-row gap-3">
-                  <a
+                  <Link
                     href="/contact"
                     className="px-8 py-4 rounded-full font-medium text-base transition-colors duration-200 min-h-[52px] inline-flex items-center justify-center"
                     style={{
@@ -93,8 +94,8 @@ export default function Hero() {
                     }
                   >
                     Start your project
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     href="/work"
                     className="px-8 py-4 rounded-full font-medium text-base transition-colors duration-200 min-h-[52px] inline-flex items-center justify-center"
                     style={{
@@ -110,7 +111,7 @@ export default function Hero() {
                     }
                   >
                     See our work
-                  </a>
+                  </Link>
                 </motion.div>
               </div>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import WordReveal from "@/components/ui/WordReveal";
 
@@ -60,7 +61,7 @@ export default function CTA() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.65, delay: 0.65, ease: [0.16, 1, 0.3, 1] }}
         >
-          <a
+          <Link
             href="/contact"
             className="px-10 py-4 rounded-full font-medium text-base min-h-[52px] transition-colors duration-200 inline-flex items-center justify-center"
             style={{
@@ -76,7 +77,7 @@ export default function CTA() {
             }
           >
             Start your project
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>

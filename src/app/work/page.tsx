@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import FadeUp from "@/components/ui/FadeUp";
 import Footer from "@/components/sections/Footer";
 
@@ -99,11 +100,11 @@ export default function WorkPage() {
                   className={`h-48 bg-gradient-to-br ${project.gradient} relative overflow-hidden`}
                 >
                   {(project as { preview?: string }).preview && (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                      src={(project as { preview?: string }).preview}
+                    <Image
+                      src={(project as { preview?: string }).preview!}
                       alt={project.name}
-                      className="absolute inset-0 w-full h-full object-cover object-top"
+                      fill
+                      className="object-cover object-top"
                     />
                   )}
                   <div
