@@ -18,26 +18,6 @@ type Project = {
 
 const projects: Project[] = [
   {
-    name: "For personalized doctors",
-    category: "Healthcare",
-    year: "2025",
-    description: "Internal medicine & preventive care practice site. Online appointment booking, telehealth services, and patient testimonials.",
-    gradient: "from-blue-900/40 to-slate-950/60",
-    accent: "#60a5fa",
-    url: "https://doctors-website-orpin.vercel.app/",
-    image: "/work/doctors-website.png",
-  },
-  {
-    name: "FORMA Barbershop",
-    category: "Local Business",
-    year: "2025",
-    description: "Premium barbershop brand site for a New York studio. Minimalist aesthetic, service menu, and online booking.",
-    gradient: "from-zinc-800/50 to-zinc-950/70",
-    accent: "#d4a853",
-    url: "https://barbershop-site-psi.vercel.app/",
-    image: "/work/barbershop-site.png",
-  },
-  {
     name: "Repair services",
     category: "Local Business",
     year: "2025",
@@ -46,6 +26,16 @@ const projects: Project[] = [
     accent: "#c9a84c",
     url: "https://galleria-shoe-care.vercel.app/",
     image: "/work/galleria-shoe-care.png",
+  },
+  {
+    name: "For personalized doctors",
+    category: "Healthcare",
+    year: "2025",
+    description: "Internal medicine & preventive care practice site. Online appointment booking, telehealth services, and patient testimonials.",
+    gradient: "from-blue-900/40 to-slate-950/60",
+    accent: "#60a5fa",
+    url: "https://doctors-website-orpin.vercel.app/",
+    image: "/work/doctors-website.png",
   },
   {
     name: "Dental Art Armenia",
