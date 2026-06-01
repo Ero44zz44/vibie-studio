@@ -18,6 +18,25 @@ type Project = {
 
 const projects: Project[] = [
   {
+    name: "Dental Art Armenia",
+    category: "Healthcare",
+    year: "2025",
+    description: "Modern dental clinic website for a Yerevan-based practice — appointment booking, service showcase, and multilingual patient experience.",
+    gradient: "from-sky-900/40 to-blue-950/60",
+    accent: "#38bdf8",
+    image: "/dental-art-preview.png",
+  },
+  {
+    name: "FORMA Barbershop",
+    category: "Local Business",
+    year: "2025",
+    description: "Premium barbershop brand site for a New York studio. Minimalist aesthetic, service menu, and online booking.",
+    gradient: "from-zinc-800/50 to-zinc-950/70",
+    accent: "#d4a853",
+    url: "https://barbershop-site-psi.vercel.app/",
+    image: "/work/barbershop-site.png",
+  },
+  {
     name: "Repair services",
     category: "Local Business",
     year: "2025",
@@ -36,15 +55,6 @@ const projects: Project[] = [
     accent: "#60a5fa",
     url: "https://doctors-website-orpin.vercel.app/",
     image: "/work/doctors-website.png",
-  },
-  {
-    name: "Dental Art Armenia",
-    category: "Healthcare",
-    year: "2025",
-    description: "Modern dental clinic website for a Yerevan-based practice — appointment booking, service showcase, and multilingual patient experience.",
-    gradient: "from-sky-900/40 to-blue-950/60",
-    accent: "#38bdf8",
-    image: "/dental-art-preview.png",
   },
   {
     name: "Nomad Coffee",
