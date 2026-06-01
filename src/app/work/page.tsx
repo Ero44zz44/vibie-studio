@@ -18,16 +18,6 @@ type Project = {
 
 const projects: Project[] = [
   {
-    name: "Repair services",
-    category: "Local Business",
-    year: "2025",
-    description: "Premium shoe care & leather restoration studio at Glendale Galleria. Expert repair for Louis Vuitton, Hermès, Louboutin, and more.",
-    gradient: "from-yellow-900/40 to-stone-950/60",
-    accent: "#c9a84c",
-    url: "https://galleria-shoe-care.vercel.app/",
-    image: "/work/galleria-shoe-care.png",
-  },
-  {
     name: "For personalized doctors",
     category: "Healthcare",
     year: "2025",
@@ -36,6 +26,26 @@ const projects: Project[] = [
     accent: "#60a5fa",
     url: "https://doctors-website-orpin.vercel.app/",
     image: "/work/doctors-website.png",
+  },
+  {
+    name: "FORMA Barbershop",
+    category: "Local Business",
+    year: "2025",
+    description: "Premium barbershop brand site for a New York studio. Minimalist aesthetic, service menu, and online booking.",
+    gradient: "from-zinc-800/50 to-zinc-950/70",
+    accent: "#d4a853",
+    url: "https://barbershop-site-psi.vercel.app/",
+    image: "/work/barbershop-site.png",
+  },
+  {
+    name: "Repair services",
+    category: "Local Business",
+    year: "2025",
+    description: "Premium shoe care & leather restoration studio at Glendale Galleria. Expert repair for Louis Vuitton, Hermès, Louboutin, and more.",
+    gradient: "from-yellow-900/40 to-stone-950/60",
+    accent: "#c9a84c",
+    url: "https://galleria-shoe-care.vercel.app/",
+    image: "/work/galleria-shoe-care.png",
   },
   {
     name: "Dental Art Armenia",
