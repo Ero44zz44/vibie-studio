@@ -1,11 +1,22 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import FadeUp from "@/components/ui/FadeUp";
 import Footer from "@/components/sections/Footer";
 
-const projects = [
+type Project = {
+  name: string;
+  category: string;
+  year: string;
+  description: string;
+  gradient: string;
+  accent: string;
+  image?: string;
+  url?: string;
+};
+
+const projects: Project[] = [
   {
     name: "Repair services",
     category: "Local Business",
@@ -14,7 +25,7 @@ const projects = [
     gradient: "from-yellow-900/40 to-stone-950/60",
     accent: "#c9a84c",
     url: "https://galleria-shoe-care.vercel.app/",
-    preview: "/work/galleria-shoe-care.png",
+    image: "/work/galleria-shoe-care.png",
   },
   {
     name: "For personalized doctors",
@@ -24,7 +35,16 @@ const projects = [
     gradient: "from-blue-900/40 to-slate-950/60",
     accent: "#60a5fa",
     url: "https://doctors-website-orpin.vercel.app/",
-    preview: "/work/doctors-website.png",
+    image: "/work/doctors-website.png",
+  },
+  {
+    name: "Dental Art Armenia",
+    category: "Healthcare",
+    year: "2025",
+    description: "Modern dental clinic website for a Yerevan-based practice — appointment booking, service showcase, and multilingual patient experience.",
+    gradient: "from-sky-900/40 to-blue-950/60",
+    accent: "#38bdf8",
+    image: "/dental-art-preview.png",
   },
   {
     name: "Nomad Coffee",
@@ -91,28 +111,30 @@ export default function WorkPage() {
                 className="group rounded-2xl overflow-hidden transition-transform duration-300 hover:-translate-y-1"
                 style={{
                   backgroundColor: "#111113",
-                  cursor: (project as { url?: string }).url ? "pointer" : "default",
+                  cursor: project.url ? "pointer" : "default",
                 }}
-                onClick={() => { if ((project as { url?: string }).url) window.open((project as { url?: string }).url, "_blank"); }}
+                onClick={() => { if (project.url) window.open(project.url, "_blank"); }}
               >
                 {/* Visual swatch */}
                 <div
-                  className={`h-48 bg-gradient-to-br ${project.gradient} relative overflow-hidden`}
+                  className={`h-48 relative overflow-hidden ${!project.image ? `bg-gradient-to-br ${project.gradient}` : ""}`}
                 >
-                  {(project as { preview?: string }).preview && (
+                  {project.image && (
                     <Image
-                      src={(project as { preview?: string }).preview!}
+                      src={project.image}
                       alt={project.name}
                       fill
-                      className="object-cover object-top"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
                     />
                   )}
                   <div
-                    className="absolute bottom-4 right-4 text-label-sm px-3 py-1 rounded-full"
+                    className="absolute bottom-4 right-4 text-label-sm px-3 py-1 rounded-full z-10"
                     style={{
-                      backgroundColor: "rgba(0,0,0,0.5)",
+                      backgroundColor: "rgba(0,0,0,0.55)",
                       color: project.accent,
                       border: `1px solid ${project.accent}30`,
+                      backdropFilter: "blur(4px)",
                     }}
                   >
                     {project.category}
@@ -126,7 +148,7 @@ export default function WorkPage() {
                     <span className="text-xs text-on-surface-variant">{project.year}</span>
                   </div>
                   <p className="text-body-md text-on-surface-variant">{project.description}</p>
-                  {(project as { url?: string }).url && (
+                  {project.url && (
                     <p className="text-xs mt-3 font-medium" style={{ color: project.accent }}>Visit site →</p>
                   )}
                 </div>
